@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPP - Herní Portál</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        nav {
+            background-color: #d71921;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            background-color: white;
+            color: #d71921;
+            border: 2px solid white;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #b3151b;
+            color: white;
+            border-color: #b3151b;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid #d71921;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h1 { margin: 0; color: #d71921; }
+        h2 { color: #d71921; border-left: 5px solid #d71921; padding-left: 10px; }
+
+        .content-section { display: none; }
+        .active { display: block; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th { background-color: #f8f8f8; color: #d71921; }
+        tr:nth-child(even) { background-color: #fafafa; }
+
+        .line-badge {
+            background: #d71921;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 30px;
+            padding: 10px;
+            color: #777;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-buttons">
+        <button onclick="showSection('domu')">Domovská stránka</button>
+        <button onclick="showSection('linky')">Linky</button>
+        <button onclick="showSection('busy')">Busy</button>
+        <button onclick="showSection('info')">Informace</button>
+    </div>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Dopravní podnik - Herní divize</h1>
+        <p>Stav ke dni: 25. 4. 2026</p>
+    </header>
+
+    <div id="domu" class="content-section active">
+        <h2>Vítejte v centrále DPP</h2>
+        <p>Aktuální stav dopravy: <strong>Všechny spoje jedou včas.</strong></p>
+        [span_0](start_span)<p>Ředitel DPP: <strong>Petr Solaris</strong>[span_0](end_span)</p>
+        [span_1](start_span)<p>Hlavní vozovna: <strong>Budějovická</strong>[span_1](end_span)</p>
+    </div>
+
+    <div id="linky" class="content-section">
+        <h2>Seznam linek a Jízdní řády</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Linka</th>
+                    <th>Směr A</th>
+                    <th>Směr B</th>
+                    <th>Poznámka</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="line-badge">124</span></td>
+                    [span_2](start_span)<td>Budějovická[span_2](end_span)</td>
+                    [span_3](start_span)<td>Zelený Pruh[span_3](end_span)</td>
+                    [span_4](start_span)<td>Synchronizováno se 134[span_4](end_span)</td>
+                </tr>
+                <tr>
+                    <td><span class="line-badge">134</span></td>
+                    [span_5](start_span)<td>Zelený Pruh[span_5](end_span)</td>
+                    [span_6](start_span)<td>Kavčí Hory[span_6](end_span)</td>
+                    [span_7](start_span)<td>Přestup na L124[span_7](end_span)</td>
+                </tr>
+                <tr>
+                    <td><span class="line-badge">188</span></td>
+                    [span_8](start_span)<td>Kavčí Hory[span_8](end_span)</td>
+                    [span_9](start_span)<td>Pankrác[span_9](end_span)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><span class="line-badge">193</span></td>
+                    [span_10](start_span)<td>Krčský Hřbitov[span_10](end_span)</td>
+                    [span_11](start_span)<td>Pankrác[span_11](end_span)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><span class="line-badge">901001</span></td>
+                    [span_12](start_span)<td>Hřbitov[span_12](end_span)</td>
+                    [span_13](start_span)<td>Zelený Pruh[span_13](end_span)</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><span class="line-badge">L356</span></td>
+                    [span_14](start_span)<td>Kavčí hory[span_14](end_span)</td>
+                    [span_15](start_span)<td>Zelený pruh[span_15](end_span)</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="busy" class="content-section">
+        <h2>Vozový park (Vozovna Budějovická)</h2>
+        
+        [span_16](start_span)<h3>SOR (včetně EBN)[span_16](end_span)</h3>
+        <table>
+            <tr><th>Model</th><th>Ev. číslo</th><th>Vlastník / Status</th></tr>
+            [span_17](start_span)<tr><td>EBN 11</td><td>3618</td><td>Záloha[span_17](end_span)</td></tr>
+            [span_18](start_span)<tr><td>EBN 11</td><td>6262</td><td>Záloha[span_18](end_span)</td></tr>
+            [span_19](start_span)<tr><td>NSG 12</td><td>7988</td><td>Samuel[span_19](end_span)</td></tr>
+            [span_20](start_span)<tr><td>NSG 12</td><td>7987</td><td>Ředitel[span_20](end_span)</td></tr>
+            [span_21](start_span)<tr><td>NB 12</td><td>7997</td><td>Záloha[span_21](end_span)</td></tr>
+            [span_22](start_span)<tr><td>NB 18</td><td>7985</td><td>Tadex[span_22](end_span)</td></tr>
+        </table>
+
+        [span_23](start_span)<h3>IVECO[span_23](end_span)</h3>
+        <table>
+            <tr><th>Model</th><th>Ev. číslo</th><th>Vlastník / Status</th></tr>
+            [span_24](start_span)<tr><td>Urbanway 10.5</td><td>9999</td><td>Sotous z Chrudimy[span_24](end_span)</td></tr>
+            [span_25](start_span)<tr><td>Crossway 14.5</td><td>9987</td><td>Ladislav[span_25](end_span)</td></tr>
+        </table>
+
+        [span_26](start_span)<h3>KAROSA[span_26](end_span)</h3>
+        <table>
+            <tr><th>Model</th><th>Ev. číslo</th><th>Vlastník / Status</th></tr>
+            [span_27](start_span)<tr><td>931</td><td>6666</td><td>Záloha[span_27](end_span)</td></tr>
+            [span_28](start_span)<tr><td>732</td><td>5555</td><td>Ředitel[span_28](end_span)</td></tr>
+        </table>
+
+        [span_29](start_span)<h3>DISPEČEŘI[span_29](end_span)</h3>
+        <table>
+            <tr><th>Vozidlo</th><th>Vlastník / Status</th></tr>
+            [span_30](start_span)<tr><td>Volkswagen Transporter</td><td>Služební[span_30](end_span)</td></tr>
+            [span_31](start_span)<tr><td>Škoda Octavia 1</td><td>Janek[span_31](end_span)</td></tr>
+        </table>
+    </div>
+
+    <div id="info" class="content-section">
+        <h2>Informace</h2>
+        [span_32](start_span)[span_33](start_span)[span_34](start_span)[span_35](start_span)[span_36](start_span)[span_37](start_span)<p><strong>Pauzy na konečných:</strong> Standardně 10 minut pro všechny linky.[span_32](end_span)[span_33](end_span)[span_34](end_span)[span_35](end_span)[span_36](end_span)[span_37](end_span)</p>
+        [span_38](start_span)<p><strong>Provozovatel:</strong> Herní DPP pod vedením Petra Solarise.[span_38](end_span)</p>
+        [span_39](start_span)<p>Data jsou aktuální k 25. 4. 2026.[span_39](end_span)</p>
+    </div>
+
+    <footer>
+        &copy; 2026 Herní Dopravní Podnik | www.dpp.cz
+    </footer>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(sec => sec.classList.remove('active'));
+        document.getElementById(sectionId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
