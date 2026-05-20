@@ -5,204 +5,276 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Třída 6.A | Oficiální web</title>
     <style>
-        /* Moderní barevná paleta (Tmavý režim inspirovaný aplikací) */
+        /* Moderní barevná paleta s prémiovým temným vzhledem */
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --accent-color: #2ea44f;
-            --accent-hover: #238636;
-            --text-main: #f0f6fc;
-            --text-muted: #8b949e;
-            --border-color: #30363d;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --boy-color: #38bdf8;
+            --girl-color: #f472b6;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
+            background: var(--bg-gradient);
+            background-attachment: fixed;
             color: var(--text-main);
             line-height: 1.6;
-            padding: 20px;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             width: 100%;
             flex: 1;
         }
 
-        /* Společné styly pro nadpisy */
+        /* Hlavní nadpisy */
         h1 {
-            font-size: 36px;
+            font-size: 46px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 20px;
             margin-bottom: 10px;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
             text-align: center;
             color: var(--text-muted);
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             font-size: 18px;
         }
 
         h2 {
-            font-size: 28px;
-            margin-bottom: 25px;
-            border-left: 4px solid var(--accent-color);
-            padding-left: 15px;
+            font-size: 32px;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
         }
 
-        /* --- 1. DOMOVSKÁ STRÁNKA (Rozcestník) --- */
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border-bottom: 4px solid var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Tlačítko Zpět (Prémiový styl) */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-color);
+            transform: translateX(-3px);
+        }
+
+        /* --- 1. DOMOVSKÁ STRÁNKA (GUI Rozcestník) --- */
         #home-page {
-            display: block; /* Výchozí viditelná stránka */
+            display: block;
         }
 
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 20px;
         }
 
         .menu-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 30px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px 30px;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .menu-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--accent-color);
-            box-shadow: 0 8px 24px rgba(46, 164, 79, 0.15);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);
+            background: rgba(30, 41, 59, 0.9);
+        }
+
+        .menu-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: block;
         }
 
         .menu-card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: var(--text-main);
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #fff;
         }
 
         .menu-card p {
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 15px;
         }
 
-        /* --- PODSTRÁNKY (Skryté v základu) --- */
+        /* Podstránky */
         .sub-page {
             display: none;
-            animation: fadeIn 0.3s ease-in-out;
+            animation: pageAppear 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes pageAppear {
+            from { opacity: 0; transform: scale(0.98) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* Tlačítko Zpět na domovskou stránku */
-        .back-btn {
-            display: inline-block;
-            background-color: var(--card-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 30px;
-            transition: background-color 0.2s, border-color 0.2s;
-        }
-
-        .back-btn:hover {
-            background-color: var(--border-color);
-            border-color: var(--text-muted);
-        }
-
-        /* --- SEKCE: ŽÁCI --- */
+        /* --- LEPŠÍ STRÁNKA PRO ŽÁKY --- */
         .students-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 20px;
         }
 
         .student-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 15px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 18px;
             display: flex;
             align-items: center;
             gap: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+        }
+
+        .student-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .student-avatar {
-            width: 40px;
-            height: 40px;
-            background-color: var(--border-color);
-            color: var(--text-main);
-            border-radius: 50%;
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 15px;
         }
 
-        /* --- SEKCE: ROZVRH --- */
+        /* Barevné rozlišení kluk / holka */
+        .boy .student-avatar { background: rgba(56, 189, 248, 0.15); color: var(--boy-color); border: 1px solid rgba(56, 189, 248, 0.3); }
+        .girl .student-avatar { background: rgba(244, 114, 182, 0.15); color: var(--girl-color); border: 1px solid rgba(244, 114, 182, 0.3); }
+        
+        .boy:hover { border-color: var(--boy-color); }
+        .girl:hover { border-color: var(--girl-color); }
+
+        .student-name {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        /* --- LEPŠÍ STRÁNKA PRO ROZVRH --- */
         .timetable-container {
             overflow-x: auto;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         table {
             width: 100%;
-            border-collapse: collapse;
+            border-collapse: separate;
+            border-spacing: 6px;
             text-align: left;
-            min-width: 850px;
+            min-width: 900px;
         }
 
         th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--border-color);
+            padding: 14px;
+            border-radius: 8px;
         }
 
         th {
-            background-color: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.03);
             font-weight: 600;
+            font-size: 14px;
+            text-align: center;
         }
 
         .day-cell {
-            font-weight: bold;
-            background-color: rgba(46, 164, 79, 0.1);
+            font-weight: 700;
+            background: rgba(56, 189, 248, 0.1) !important;
+            color: var(--accent-color);
             text-align: center;
-            width: 110px;
+            width: 120px;
+            font-size: 15px;
+        }
+
+        td {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        td:hover:not(.day-cell):not(:empty) {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .subject {
             font-weight: 600;
             display: block;
+            font-size: 15px;
         }
 
         .room {
             font-size: 12px;
             color: var(--text-muted);
             display: block;
+            margin-top: 3px;
         }
 
         .time-header {
@@ -210,31 +282,35 @@
             color: var(--text-muted);
             font-weight: normal;
             display: block;
+            margin-top: 4px;
         }
 
-        /* --- SEKCE: ŠKOLNÍ ROK & UČITELÉ --- */
+        /* --- LEPŠÍ STRÁNKA PRO UČITELE --- */
         .info-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1.3fr;
             gap: 30px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .info-layout { grid-template-columns: 1fr; }
         }
 
         .info-box {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
         }
 
         .info-box h3 {
-            margin-bottom: 15px;
-            color: var(--accent-color);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .info-box ul {
@@ -242,32 +318,49 @@
         }
 
         .info-box li {
-            padding: 8px 0;
-            border-bottom: 1px dashed var(--border-color);
+            padding: 12px 15px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.02);
             display: flex;
             justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-box li:hover {
+            background: rgba(255, 255, 255, 0.03);
         }
 
         .info-box li span {
             color: var(--text-muted);
+            font-size: 14px;
         }
 
-        .management-badge {
-            background: rgba(46, 164, 79, 0.15);
-            color: var(--accent-color);
-            padding: 2px 8px;
-            border-radius: 4px;
+        .badge {
+            padding: 4px 10px;
+            border-radius: 30px;
             font-size: 12px;
-            font-weight: bold;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        /* PATIČKA */
+        .badge-boss { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+        .badge-teacher { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+        /* PATIČKA S PODPISEM */
         footer {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 60px;
             color: var(--text-muted);
             font-size: 14px;
-            padding: 20px 0;
+            padding: 25px 0;
+            border-top: 1px solid var(--card-border);
+        }
+
+        footer strong {
+            color: var(--accent-color);
         }
     </style>
 </head>
@@ -277,57 +370,60 @@
 
         <div id="home-page">
             <h1>Třída 6.A</h1>
-            <p class="subtitle">Vítejte na našem třídním rozcestníku</p>
+            <p class="subtitle">Oficiální třídní portál</p>
 
             <div class="menu-grid">
                 <div class="menu-card" onclick="navigateTo('students-page')">
+                    <span class="menu-icon">👥</span>
                     <h3>Žáci</h3>
-                    <p>Abecední seznam všech studentů v naší třídě</p>
+                    <p>Abecední přehled a složení studentů 6.A</p>
                 </div>
 
                 <div class="menu-card" onclick="navigateTo('timetable-page')">
-                    <h3>Rozvrh</h3>
-                    <p>Týdenní rozvrh hodin včetně učeben a časů</p>
+                    <span class="menu-icon">📅</span>
+                    <h3>Rozvrh hodin</h3>
+                    <p>Kompletní týdenní plán vyučování a učeben</p>
                 </div>
 
                 <div class="menu-card" onclick="navigateTo('year-page')">
-                    <h3>Školní rok 2025/26</h3>
-                    <p>Informace o školním roce, vedení školy a učitelích</p>
+                    <span class="menu-icon">🎓</span>
+                    <h3>Učitelský sbor</h3>
+                    <p>Vedení školy, učitelé a info o školním roce 2025/26</p>
                 </div>
             </div>
         </div>
 
 
         <div id="students-page" class="sub-page">
-            <button class="back-btn" onclick="navigateTo('home-page')">&larr; Domovská stránka</button>
+            <button class="back-btn" onclick="navigateTo('home-page')">← Domovská stránka</button>
             <h2>Seznam žáků</h2>
             
             <div class="students-grid">
-                <div class="student-card"><div class="student-avatar">VB</div><div class="student-name">Vít Bednář</div></div>
-                <div class="student-card"><div class="student-avatar">NB</div><div class="student-name">Nikola Brigulová</div></div>
-                <div class="student-card"><div class="student-avatar">LG</div><div class="student-name">Lucie Grigarová</div></div>
-                <div class="student-card"><div class="student-avatar">EH</div><div class="student-name">Eva Hejsková</div></div>
-                <div class="student-card"><div class="student-avatar">TH</div><div class="student-name">Terka Hejsková</div></div>
-                <div class="student-card"><div class="student-avatar">VH</div><div class="student-name">Viktorie Hejnýšová</div></div>
-                <div class="student-card"><div class="student-avatar">MCH</div><div class="student-name">Marie Chmelová</div></div>
-                <div class="student-card"><div class="student-avatar">IC</div><div class="student-name">Inna Churavá</div></div>
-                <div class="student-card"><div class="student-avatar">KK</div><div class="student-name">Kateřina Kalusová</div></div>
-                <div class="student-card"><div class="student-avatar">AM</div><div class="student-name">Adéla Mojžíšková</div></div>
-                <div class="student-card"><div class="student-avatar">EP</div><div class="student-name">Ester Palasová</div></div>
-                <div class="student-card"><div class="student-avatar">RP</div><div class="student-name">Rozárie Pavlíková</div></div>
-                <div class="student-card"><div class="student-avatar">AP</div><div class="student-name">Anna Plachká</div></div>
-                <div class="student-card"><div class="student-avatar">MP</div><div class="student-name">Martina Pomothyová</div></div>
-                <div class="student-card"><div class="student-avatar">MS</div><div class="student-name">Masha Strizheus</div></div>
-                <div class="student-card"><div class="student-avatar">PŠ</div><div class="student-name">Petr Šmatlák</div></div>
-                <div class="student-card"><div class="student-avatar">AŠ</div><div class="student-name">Adéla Šromová</div></div>
-                <div class="student-card"><div class="student-avatar">AŠ</div><div class="student-name">Adéla Šugarová</div></div>
-                <div class="student-card"><div class="student-avatar">BT</div><div class="student-name">Bára Trantinová</div></div>
+                <div class="student-card boy"><div class="student-avatar">VB</div><div class="student-name">Vít Bednář</div></div>
+                <div class="student-card girl"><div class="student-avatar">NB</div><div class="student-name">Nikola Brigulová</div></div>
+                <div class="student-card girl"><div class="student-avatar">LG</div><div class="student-name">Lucie Grigarová</div></div>
+                <div class="student-card girl"><div class="student-avatar">EH</div><div class="student-name">Eva Hejsková</div></div>
+                <div class="student-card girl"><div class="student-avatar">TH</div><div class="student-name">Terka Hejsková</div></div>
+                <div class="student-card girl"><div class="student-avatar">VH</div><div class="student-name">Viktorie Hejnýšová</div></div>
+                <div class="student-card girl"><div class="student-avatar">MCH</div><div class="student-name">Marie Chmelová</div></div>
+                <div class="student-card girl"><div class="student-avatar">IC</div><div class="student-name">Inna Churavá</div></div>
+                <div class="student-card girl"><div class="student-avatar">KK</div><div class="student-name">Kateřina Kalusová</div></div>
+                <div class="student-card girl"><div class="student-avatar">AM</div><div class="student-name">Adéla Mojžíšková</div></div>
+                <div class="student-card girl"><div class="student-avatar">EP</div><div class="student-name">Ester Palasová</div></div>
+                <div class="student-card girl"><div class="student-avatar">RP</div><div class="student-name">Rozárie Pavlíková</div></div>
+                <div class="student-card girl"><div class="student-avatar">AP</div><div class="student-name">Anna Plachká</div></div>
+                <div class="student-card girl"><div class="student-avatar">MP</div><div class="student-name">Martina Pomothyová</div></div>
+                <div class="student-card girl"><div class="student-avatar">MS</div><div class="student-name">Masha Strizheus</div></div>
+                <div class="student-card boy"><div class="student-avatar">PŠ</div><div class="student-name">Petr Šmatlák</div></div>
+                <div class="student-card girl"><div class="student-avatar">AŠ</div><div class="student-name">Adéla Šromová</div></div>
+                <div class="student-card girl"><div class="student-avatar">AŠ</div><div class="student-name">Adéla Šugarová</div></div>
+                <div class="student-card girl"><div class="student-avatar">BT</div><div class="student-name">Bára Trantinová</div></div>
             </div>
         </div>
 
 
         <div id="timetable-page" class="sub-page">
-            <button class="back-btn" onclick="navigateTo('home-page')">&larr; Domovská stránka</button>
+            <button class="back-btn" onclick="navigateTo('home-page')">← Domovská stránka</button>
             <h2>Rozvrh hodin</h2>
 
             <div class="timetable-container">
@@ -353,33 +449,33 @@
                             <td><span class="subject">Výtvarná výchova</span><span class="room">092 - Učebna Vv</span></td>
                             <td><span class="subject">Fyzika</span><span class="room">022 - Učebna fyziky</span></td>
                             <td><span class="subject">Dějepis</span><span class="room">Učebna 6.A</span></td>
-                            <td><span class="subject">Tělesná výchova</span><span class="room">157 - Malá tělocvična</span></td>
+                            <td><span class="subject">Tělesná výchova</span><span class="room">157 - Tělocvična</span></td>
                         </tr>
                         <tr>
                             <td class="day-cell">Úterý</td>
                             <td><span class="subject">Matematika</span><span class="room">Učebna 6.A</span></td>
                             <td><span class="subject">Český jazyk</span><span class="room">Učebna 6.A</span></td>
                             <td><span class="subject">Přírodopis</span><span class="room">011 - Učebna chemie</span></td>
-                            <td><span class="subject">Informatika</span><span class="room">007 - PC učebna A3</span></td>
-                            <td><span class="subject">Anglický jazyk</span><span class="room">025 - Učebna jazyků</span></td>
+                            <td><span class="subject">Informatika</span><span class="room">007 - PC učebna</span></td>
+                            <td><span class="subject">Anglický jazyk</span><span class="room">025 - Učebna jaz.</span></td>
                             <td><span class="subject">Pracovní činnosti</span><span class="room">Učebna 6.A</span></td>
                             <td>-</td>
                         </tr>
                         <tr>
                             <td class="day-cell">Středa</td>
                             <td><span class="subject">Český jazyk</span><span class="room">Učebna 6.A</span></td>
-                            <td><span class="subject">Tělesná výchova</span><span class="room">077 - Velká tělocvična</span></td>
+                            <td><span class="subject">Tělesná výchova</span><span class="room">077 - Tělocvična</span></td>
                             <td><span class="subject">Matematika</span><span class="room">Učebna 6.A</span></td>
                             <td><span class="subject">Zeměpis</span><span class="room">Učebna 6.A</span></td>
                             <td><span class="subject">Dějepis</span><span class="room">Učebna 6.A</span></td>
-                            <td><span class="subject">Praktika z fyziky</span><span class="room">022 - Učebna fyziky</span></td>
+                            <td><span class="subject">Praktika z fyziky</span><span class="room">022 - Fyzika</span></td>
                             <td>-</td>
                         </tr>
                         <tr>
                             <td class="day-cell">Čtvrtek</td>
                             <td><span class="subject">Rodinná výchova</span><span class="room">Učebna 6.A</span></td>
                             <td><span class="subject">Anglický jazyk</span><span class="room">Skupina AJ Svět</span></td>
-                            <td><span class="subject">Sportovní výchova</span><span class="room">077 - Velká tělocvična</span></td>
+                            <td><span class="subject">Sportovní výchova</span><span class="room">077 - Tělocvična</span></td>
                             <td><span class="subject">Matematika</span><span class="room">Učebna 6.A</span></td>
                             <td><span class="subject">Český jazyk</span><span class="room">Učebna 6.A</span></td>
                             <td><span class="subject">Přírodopis</span><span class="room">011 - Učebna chemie</span></td>
@@ -391,7 +487,7 @@
                             <td><span class="subject">Anglický jazyk</span><span class="room">Skupina AJ Svět</span></td>
                             <td><span class="subject">Občanská výchova</span><span class="room">Učebna 6.A</span></td>
                             <td><span class="subject">Český jazyk</span><span class="room">Skupina ČJ</span></td>
-                            <td><span class="subject">Hudební výchova</span><span class="room">023 - Kabinet fyziky</span></td>
+                            <td><span class="subject">Hudební výchova</span><span class="room">023 - Kabinet fyz.</span></td>
                             <td>-</td>
                             <td>-</td>
                         </tr>
@@ -402,37 +498,36 @@
 
 
         <div id="year-page" class="sub-page">
-            <button class="back-btn" onclick="navigateTo('home-page')">&larr; Domovská stránka</button>
-            <h2>Školní rok 2025/2026</h2>
+            <button class="back-btn" onclick="navigateTo('home-page')">← Domovská stránka</button>
+            <h2>Informace a učitelé</h2>
 
             <div class="info-layout">
                 <div class="info-box">
-                    <h3>Základní informace</h3>
+                    <h3><span>ℹ️</span> Přehled</h3>
                     <ul>
-                        <li><strong>Třída:</strong> <span>6.A</span></li>
                         <li><strong>Školní rok:</strong> <span>2025/2026</span></li>
-                        <li><strong>Počet žáků:</strong> <span>19</span></li>
-                        <li><strong>Stav:</strong> <span>Běží školní rok</span></li>
+                        <li><strong>Třída:</strong> <span>6.A</span></li>
+                        <li><strong>Počet žáků:</strong> <span>19 studentů</span></li>
                     </ul>
                 </div>
 
                 <div class="info-box">
-                    <h3>Vedení školy & Učitelé</h3>
+                    <h3><span>👨‍🏫</span> Vedení a učitelský sbor</h3>
                     <ul>
-                        <li><strong>Jan Škrabal</strong> <span class="management-badge">Ředitel</span></li>
-                        <li><strong>Ivana Sýkorová</strong> <span class="management-badge">Zástupce ředitele</span></li>
-                        <li>David Bednář <span>Učitel</span></li>
-                        <li>Monika Illíková <span>Učitelka</span></li>
-                        <li>Renata Štenclová <span>Učitelka</span></li>
-                        <li>Petr Mička <span>Učitel</span></li>
-                        <li>Tomáš Novotný <span>Učitel</span></li>
-                        <li>Ivana Tramplerová <span>Učitelka</span></li>
-                        <li>Vladimír Rychlý <span>Učitel</span></li>
-                        <li>Dominik Klinger <span>Učitel</span></li>
-                        <li>Lenka Jašková <span>Učitelka</span></li>
-                        <li>Dana Světlíková <span>Učitelka</span></li>
-                        <li>Žaneta Kernová <span>Učitelka</span></li>
-                        <li>Lucie Rychtová <span>Učitelka</span></li>
+                        <li><strong>Jan Škrabal</strong> <span class="badge badge-boss">Ředitel</span></li>
+                        <li><strong>Ivana Sýkorová</strong> <span class="badge badge-boss">Zástupce ředitele</span></li>
+                        <li>David Bednář <span class="badge badge-teacher">Učitel</span></li>
+                        <li>Monika Illíková <span class="badge badge-teacher">Učitelka</span></li>
+                        <li>Renata Štenclová <span class="badge badge-teacher">Učitelka</span></li>
+                        <li>Petr Mička <span class="badge badge-teacher">Učitel</span></li>
+                        <li>Tomáš Novotný <span class="badge badge-teacher">Učitel</span></li>
+                        <li>Ivana Tramplerová <span class="badge badge-teacher">Učitelka</span></li>
+                        <li>Vladimír Rychlý <span class="badge badge-teacher">Učitel</span></li>
+                        <li>Dominik Klinger <span class="badge badge-teacher">Učitel</span></li>
+                        <li>Lenka Jašková <span class="badge badge-teacher">Učitelka</span></li>
+                        <li>Dana Světlíková <span class="badge badge-teacher">Učitelka</span></li>
+                        <li>Žaneta Kernová <span class="badge badge-teacher">Učitelka</span></li>
+                        <li>Lucie Rychtová <span class="badge badge-teacher">Učitelka</span></li>
                     </ul>
                 </div>
             </div>
@@ -441,21 +536,17 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Třídní web 6.A. Všechna práva vyhrazena.</p>
+        <p>Stránku vytvořil <strong>Petr Šmatlák</strong> s pomocí Umělé Inteligence &copy; 2026</p>
     </footer>
 
     <script>
         function navigateTo(pageId) {
-            // Skryje všechny stránky
             document.getElementById('home-page').style.display = 'none';
             document.getElementById('students-page').style.display = 'none';
             document.getElementById('timetable-page').style.display = 'none';
             document.getElementById('year-page').style.display = 'none';
 
-            // Zobrazí pouze vybranou stránku
             document.getElementById(pageId).style.display = 'block';
-            
-            // Odroluje nahoru, aby nová stránka nezačínala uprostřed
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
