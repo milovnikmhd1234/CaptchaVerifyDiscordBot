@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manuál - Captcha Verify Bot</title>
+    <style>
+        :root {
+            --bg-color: #1a1c1e;
+            --card-bg: #24272c;
+            --accent-color: #5865F2;
+            --accent-hover: #4752c4;
+            --text-color: #f2f3f5;
+            --text-muted: #b5bac1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            padding: 20px;
+        }
+
+        .page {
+            background-color: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #313338;
+            padding-bottom: 5px;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+        }
+
+        li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        code {
+            background-color: #1e1f22;
+            color: #e6c17a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem;
+        }
+
+        .highlight-box {
+            background-color: #2b2d31;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .meta-info {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 30px;
+            border-top: 1px solid #313338;
+            padding-top: 15px;
+            text-align: center;
+        }
+
+        .meta-info strong {
+            color: #fff;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #4e5058;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s ease, transform 0.1s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        .btn:hover {
+            background-color: #6d6f78;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="page">
+            <!-- Odkaz zpět na hlavní index.html -->
+            <a href="index.html" class="btn">← Domovská stránka</a>
+
+            <h1>Manuál bota Captcha Verify</h1>
+            <p>Tento manuál ti pomůže pochopit, jak bot funguje a jak ho správně nakonfigurovat na tvém Discord serveru.</p>
+
+            <h2>1. Jak bot funguje?</h2>
+            <p>Po připojení nového uživatele na server mu bot automaticky pošle do vyznačeného kanálu (nebo do soukromé zprávy) vygenerovaný obrázek s kódem (Captcha). Dokud uživatel kód správně neopíše, nezíská přístup ke zbytku serveru.</p>
+
+            <h2>2. Základní nastavení</h2>
+            <ol>
+                <li>Vytvoř roli (např. <code>Ověřený</code>), kterou bot udělí uživateli po úspěšném vyřešení Captchy.</li>
+                <li>Ujisti se, že role bota je v nastavení serveru <strong>výše</strong> než role, kterou má udělovat.</li>
+                <li>Nastav oprávnění pro kanály tak, aby nováčci bez role viděli pouze ověřovací kanál.</li>
+            </ol>
+
+            <h2>3. Seznam příkazů</h2>
+            <ul>
+                <li><code>/setup</code> – Hlavní příkaz pro nastavení ověřovacího kanálu a role.</li>
+                <li><code>/captcha</code> – Ruční vyvolání nového ověřovacího kódu pro uživatele.</li>
+                <li><code>/help</code> – Zobrazí seznam všech dostupných příkazů přímo na Discordu.</li>
+            </ul>
+
+            <div class="highlight-box" style="margin-top: 20px;">
+                <p style="margin-bottom: 0; color: #fff;">
+                    💡 <strong>Tip:</strong> Pokud se kód na obrázku zdá nečitelný, uživatel může vždy požádat o nový pomocí tlačítka pod zprávou.
+                </p>
+            </div>
+
+            <div class="meta-info">
+                Majitel: <strong>Petr’s plays cz</strong>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
