@@ -57,7 +57,7 @@
             font-size: 1.3rem;
             color: #fff;
             margin-top: 25px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             border-bottom: 1px solid #313338;
             padding-bottom: 5px;
         }
@@ -69,7 +69,7 @@
             line-height: 1.6;
         }
 
-        ul, ol {
+        ol {
             margin-left: 20px;
             margin-bottom: 20px;
             color: var(--text-muted);
@@ -80,12 +80,31 @@
             line-height: 1.5;
         }
 
-        code {
+        /* Stylování seznamu příkazů ve stylu Discordu */
+        .command-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .command-item {
             background-color: #1e1f22;
-            color: #e6c17a;
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .command-name {
             font-family: 'Courier New', Courier, monospace;
+            color: #e6c17a;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .command-desc {
+            color: var(--text-muted);
             font-size: 0.95rem;
         }
 
@@ -141,32 +160,44 @@
     <div class="container">
 
         <div class="page">
-            <!-- Odkaz zpět na hlavní index.html -->
             <a href="index.html" class="btn">← Domovská stránka</a>
 
             <h1>Manuál bota Captcha Verify</h1>
             <p>Tento manuál ti pomůže pochopit, jak bot funguje a jak ho správně nakonfigurovat na tvém Discord serveru.</p>
 
             <h2>1. Jak bot funguje?</h2>
-            <p>Po připojení nového uživatele na server mu bot automaticky pošle do vyznačeného kanálu (nebo do soukromé zprávy) vygenerovaný obrázek s kódem (Captcha). Dokud uživatel kód správně neopíše, nezíská přístup ke zbytku serveru.</p>
+            <p>Po připojení nového uživatele na server mu bot automaticky pošle vygenerovaný obrázek s kódem (Captcha). Dokud uživatel kód správně neopíše, nezíská přístup ke zbytku serveru. Tím se zabrání vstupu škodlivých botů.</p>
 
             <h2>2. Základní nastavení</h2>
             <ol>
-                <li>Vytvoř roli (např. <code>Ověřený</code>), kterou bot udělí uživateli po úspěšném vyřešení Captchy.</li>
+                <li>Vytvoř roli, kterou bot udělí uživateli po úspěšném vyřešení Captchy.</li>
                 <li>Ujisti se, že role bota je v nastavení serveru <strong>výše</strong> než role, kterou má udělovat.</li>
                 <li>Nastav oprávnění pro kanály tak, aby nováčci bez role viděli pouze ověřovací kanál.</li>
             </ol>
 
             <h2>3. Seznam příkazů</h2>
-            <ul>
-                <li><code>/setup</code> – Hlavní příkaz pro nastavení ověřovacího kanálu a role.</li>
-                <li><code>/captcha</code> – Ruční vyvolání nového ověřovacího kódu pro uživatele.</li>
-                <li><code>/help</code> – Zobrazí seznam všech dostupných příkazů přímo na Discordu.</li>
-            </ul>
+            <div class="command-list">
+                
+                <div class="command-item">
+                    <div class="command-name">/status</div>
+                    <div class="command-desc">Změní status (aktivitu) bota. (Change the status of the bot!)</div>
+                </div>
+
+                <div class="command-item">
+                    <div class="command-name">/verification-add</div>
+                    <div class="command-desc">Ručně ověří vybraného uživatele bez nutnosti psát Captchu. (Verify a user manually!)</div>
+                </div>
+
+                <div class="command-item">
+                    <div class="command-name">/verification-setup</div>
+                    <div class="command-desc">Spustí hlavní nastavení ověřovacího systému na serveru.</div>
+                </div>
+
+            </div>
 
             <div class="highlight-box" style="margin-top: 20px;">
                 <p style="margin-bottom: 0; color: #fff;">
-                    💡 <strong>Tip:</strong> Pokud se kód na obrázku zdá nečitelný, uživatel může vždy požádat o nový pomocí tlačítka pod zprávou.
+                    💡 <strong>Tip pro administrátory:</strong> Příkaz <code>/verification-add</i> je super, pokud má nějaký reálný uživatel problém kód přečíst a ty ho chceš pustit na server hned.
                 </p>
             </div>
 
